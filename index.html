@@ -178,6 +178,7 @@ td.na{color:#ccc}
 .inc-purpose.p-BD{background:#e6f4ea;border-color:#42b72a;color:#1a5c0c}
 .inc-purpose.p-REST{background:#e7f3ff;border-color:#1877f2;color:#166fe5}
 .inc-purpose.p-CRIX{background:#fff3cd;border-color:#f7b928;color:#856404}
+.inc-purpose.p-HATCH{background:#fce7f3;border-color:#db2777;color:#9d174d}
 .inc-purpose.p-OTHER{background:#f3e8ff;border-color:#9333ea;color:#6b21a8}
 .inc-other{width:100%;padding:4px 6px;border:1.5px solid #9333ea;border-radius:4px;font-size:11px;font-family:var(--font);outline:none;margin:-2px 0 6px;background:#faf5ff}
 .inc-hum-row{display:flex;align-items:center;gap:4px;margin-top:5px}
@@ -417,10 +418,11 @@ var PURPOSE_OPTS = [
   {v:'BD',   en:'🦎 BD Eggs',               my:'BD ဥ'},
   {v:'REST', en:'💤 Resting Incubator',     my:'နားထားသော ဥပေါက်စက်'},
   {v:'CRIX', en:'🦗 Cricket Eggs Incubator',my:'ပုရစ်ဥ ဥပေါက်စက်'},
+  {v:'HATCH',en:'🐣 Boxes Hatching Daily',  my:'နေ့စဉ် ဥပေါက်နေသော သေတ္တာများ'},
   {v:'OTHER',en:'✏️ Other use (write)',      my:'အခြား (ရေးပါ)'}
 ];
-var PURPOSE_LABEL = {BD:'BD Eggs', REST:'Resting Incubator', CRIX:'Cricket Eggs Incubator'};
-var LABEL_TO_CODE = {'BD Eggs':'BD','Resting Incubator':'REST','Cricket Eggs Incubator':'CRIX'};
+var PURPOSE_LABEL = {BD:'BD Eggs', REST:'Resting Incubator', CRIX:'Cricket Eggs Incubator', HATCH:'Boxes Hatching Daily'};
+var LABEL_TO_CODE = {'BD Eggs':'BD','Resting Incubator':'REST','Cricket Eggs Incubator':'CRIX','Boxes Hatching Daily':'HATCH'};
 var purposes = {}; // {'inc5': 'BD' | 'REST' | 'CRIX' | 'typed text'}
 try{ purposes = JSON.parse(localStorage.getItem('srr_egg_purposes')||'{}') || {}; }catch(e){ purposes = {}; }
 function savePurposes(){ try{ localStorage.setItem('srr_egg_purposes', JSON.stringify(purposes)); }catch(e){} }
@@ -483,7 +485,7 @@ setInterval(tick,1000); tick();
 // Now: everything lives in memory first; the Google Sheet is the master
 // copy; this device only keeps readings not yet sent + the last 14 days.
 // A full storage can never stop a reading from being sent.
-var APP_VERSION = '2026-10-26c';
+var APP_VERSION = '2026-10-29a';
 var _store = null;
 var storageProblem = false;
 var LOCAL_KEEP_DAYS = 14;
